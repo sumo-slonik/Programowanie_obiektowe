@@ -1,5 +1,5 @@
 # Programowanie_obiektowe
-Rozwiązania zadań z przedmiotu programowanie obiektowe prowadzonego przez dr inż. Aleksandra Smywińskiego-Pohla <br>
+Rozwiązania zadań z przedmiotu programowanie obiektowe prowadzonego przez dr inż. Romana Dębskiego <br>
 w ramach studiów inżynierskich na kierunku informatyka (AGH wiet) <br>
 
 
