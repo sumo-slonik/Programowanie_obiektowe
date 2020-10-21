@@ -1,15 +1,36 @@
 package agh.cs.lab3;
 
 import agh.cs.lab2.MovieDirection;
+import java.util.Arrays;
 
 public class OptionParser {
-    public MovieDirection parse(String [] toParse){
-        MovieDirection [] result = new MovieDirection[10] ;
-        for (String i : toParse)
+    public static MovieDirection [] parse(String toParse){
+        MovieDirection [] result = new MovieDirection[toParse.length()] ;
+        int iter = 0;
+        String [] copy = toParse.split("");
+        for (String i : copy)
         {
-            System.out.println("zwierze.toString()");
+            switch (i) {
+                case "f", "forward" -> {
+                    result[iter] = MovieDirection.FORWARD;
+                    iter++;
+                }
+                case "r", "right" -> {
+                    result[iter] = MovieDirection.RIGHT;
+                    iter++;
+                }
+                case "l", "left" -> {
+                    result[iter] = MovieDirection.LEFT;
+                    iter++;
+                }
+                case "b", "backward" -> {
+                    result[iter] = MovieDirection.BACKWARD;
+                    iter++;
+                }
+            }
         }
-        return MovieDirection.RIGHT;
-
+        MovieDirection [] to_return = new MovieDirection[iter];
+        if (iter >= 0) System.arraycopy(result, 0, to_return, 0, iter);
+        return to_return;
     }
 }

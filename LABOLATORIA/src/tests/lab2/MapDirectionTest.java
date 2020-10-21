@@ -1,9 +1,6 @@
 package lab2;
-
-
 import agh.cs.lab2.MapDirection;
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 public class MapDirectionTest {
     @Test

@@ -1,4 +1,5 @@
 package agh.cs.lab2;
+import agh.cs.lab2.MovieDirection;
 
 public enum MapDirection {
     NORTH,
@@ -12,6 +13,15 @@ public enum MapDirection {
             case WEST -> "Zachód";
             case NORTH -> "Północ";
             case SOUTH -> "Południe";
+        };
+    }
+    public MovieDirection toMovieDirection()
+    {
+        return switch(this) {
+            case EAST -> MovieDirection.RIGHT;
+            case WEST -> MovieDirection.LEFT;
+            case NORTH -> MovieDirection.FORWARD;
+            case SOUTH -> MovieDirection.BACKWARD;
         };
     }
     //returns the next direction clockwise
