@@ -8,4 +8,5 @@ w ramach studiów inżynierskich na kierunku informatyka (AGH wiet) <br>
 | Labolatorium nr| Temat |
 |:-------------:|:-------------:|
 | [Laboratorium 1](https://github.com/sumo-slonik/Programowanie_obiektowe/tree/main/Lab_1) | Wprowadzenie do Javy
-| [Laboratorium 2](https://github.com/sumo-slonik/Programowanie_obiektowe/tree/main/Lab_1) | Model obiektowy Javy
+| [Laboratorium 2](https://github.com/sumo-slonik/Programowanie_obiektowe/tree/main/Lab_2) | Model obiektowy Javy
+| [Laboratorium 3](https://github.com/sumo-slonik/Programowanie_obiektowe/tree/main/Lab_3) | Interakcje między obiektami
