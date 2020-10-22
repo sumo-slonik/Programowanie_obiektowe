@@ -7,17 +7,14 @@ import agh.cs.lab3.OptionParser.*;
 public class World {
     public static void main(String [] args)
     {
-//        Animal zwierze =new Animal();
-//        zwierze.movie(MovieDirection.RIGHT);
-//        zwierze.movie(MovieDirection.FORWARD);
-//        zwierze.movie(MovieDirection.FORWARD);
-//        zwierze.movie(MovieDirection.FORWARD);
-//        System.out.println(zwierze.toString());
-        String test = "rfff";
+        Animal zwierze =new Animal();
+        String test = "rrrr";
         MovieDirection [] argument =  OptionParser.parse(test);
-        for(MovieDirection i : argument)
+        for (int i = 0 ; i < 4 ;i++)
         {
-            System.out.println(i);
+            zwierze.movie(argument[i]);
+            System.out.println(zwierze.toString());
+
         }
 
     }

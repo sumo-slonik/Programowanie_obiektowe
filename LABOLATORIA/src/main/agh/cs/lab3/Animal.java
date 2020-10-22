@@ -6,31 +6,31 @@ import agh.cs.lab2.Vector2d;
 
 public class Animal {
     private Vector2d position = new Vector2d(2, 2);
-    private MapDirection ortientation = MapDirection.NORTH;
+    private MapDirection orientation = MapDirection.NORTH;
     public String toString() {
-        return position.toString() + " "+ ortientation.toString();
+        return position.toString() + " "+ orientation.toString();
     }
     public void movie(MovieDirection direction)
     {
         switch (direction){
             case RIGHT :
-                this.ortientation=this.ortientation.next();
+                this.orientation =this.orientation.next();
                 break;
             case LEFT :
-                this.ortientation=this.ortientation.previous();
+                this.orientation =this.orientation.previous();
                 break;
             case FORWARD :
-                if (this.position.add(this.ortientation.toUnitVector()).precedes(new Vector2d(4,4)) &&
-                        this.position.add(this.ortientation.toUnitVector()).follows(new Vector2d(0,0)))
+                if (this.position.add(this.orientation.toUnitVector()).precedes(new Vector2d(4,4)) &&
+                        this.position.add(this.orientation.toUnitVector()).follows(new Vector2d(0,0)))
             {
-                this.position = this.position.add(this.ortientation.toUnitVector());
+                this.position = this.position.add(this.orientation.toUnitVector());
             }
                 break;
             case BACKWARD:
-                if (this.position.subtract(this.ortientation.toUnitVector()).precedes(new Vector2d(4,4)) &&
-                        this.position.subtract(this.ortientation.toUnitVector()).follows(new Vector2d(0,0)))
+                if (this.position.subtract(this.orientation.toUnitVector()).precedes(new Vector2d(4,4)) &&
+                        this.position.subtract(this.orientation.toUnitVector()).follows(new Vector2d(0,0)))
                 {
-                    this.position = this.position.subtract(this.ortientation.toUnitVector());
+                    this.position = this.position.subtract(this.orientation.toUnitVector());
                 }
     }
 
