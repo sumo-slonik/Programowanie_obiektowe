@@ -1,6 +1,7 @@
 # Programowanie_obiektowe
-Rozwiązania zadań z przedmiotu programowanie obiektowe prowadzonego przez dr inż. Aleksandra Smywińskiego-Pohla <br>
-w ramach studiów inżynierskich na kierunku informatyka (AGH wiet) <br>
+Rozwiązania zadań z przedmiotu programowanie obiektowe prowadzonego przez <br>
+dr inż. Aleksandra Smywińskiego-Pohla w ramach studiów inżynierskich <br>
+na kierunku informatyka (AGH wiet) <br>
 
 
 
