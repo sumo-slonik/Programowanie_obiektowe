@@ -6,6 +6,7 @@ import agh.cs.lab2.Vector2d;
 import agh.cs.lab4.IWorldMap;
 
 public class Animal {
+<<<<<<< HEAD
     //constructor
     private IWorldMap map;
     //this vector describe position animal object in map 4x4
@@ -27,10 +28,12 @@ public class Animal {
         return this.position;
     }
     // this parameter describe direction of animal
+=======
+    private Vector2d position = new Vector2d(2, 2);
+>>>>>>> parent of 44084a4... completing lab 3
     private MapDirection orientation = MapDirection.NORTH;
-
-    // here converting position to string in format "(x-position,y-position) DirectionOfOrientation"
     public String toString() {
+<<<<<<< HEAD
         return orientation.toString().substring(0,1);
     }
 
@@ -57,13 +60,42 @@ public class Animal {
             }
             case BACKWARD -> {
                 if (map.canMoveTo(this.position.subtract(this.orientation.toUnitVector()))) {
+=======
+        return position.toString() + " "+ orientation.toString();
+    }
+    public void movie(MovieDirection direction)
+    {
+        switch (direction){
+            case RIGHT :
+                this.orientation =this.orientation.next();
+                break;
+            case LEFT :
+                this.orientation =this.orientation.previous();
+                break;
+            case FORWARD :
+                if (this.position.add(this.orientation.toUnitVector()).precedes(new Vector2d(4,4)) &&
+                        this.position.add(this.orientation.toUnitVector()).follows(new Vector2d(0,0)))
+            {
+                this.position = this.position.add(this.orientation.toUnitVector());
+            }
+                break;
+            case BACKWARD:
+                if (this.position.subtract(this.orientation.toUnitVector()).precedes(new Vector2d(4,4)) &&
+                        this.position.subtract(this.orientation.toUnitVector()).follows(new Vector2d(0,0)))
+                {
+>>>>>>> parent of 44084a4... completing lab 3
                     this.position = this.position.subtract(this.orientation.toUnitVector());
                     return true;
                 }
+<<<<<<< HEAD
                 return false;
             }
         }
         return false;
+=======
+    }
+
+>>>>>>> parent of 44084a4... completing lab 3
     }
 
 }
