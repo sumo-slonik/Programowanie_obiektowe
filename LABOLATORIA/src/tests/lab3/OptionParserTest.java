@@ -8,17 +8,20 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-
+// testing paring function using conversation of mapDirection to movieDirection
 public class OptionParserTest {
     @Test
-    public void parse_test()
-    {
+    public void parse_test() {
+        //here we creating default vector
         MapDirection direction = MapDirection.NORTH;
+        //input test to parse
         String to_test = "frblfrblfrblfrblfrblfrblfrblfrblfrblfrblfrblfrblfrblfrblfrblfrbl";
-        MovieDirection [] result = OptionParser.parse(to_test);
-        for (MovieDirection i : result)
-        {
-            assertEquals(i,direction.toMovieDirection());
+        //converting string to movieDirection type
+        MovieDirection[] result = OptionParser.parse(to_test);
+        for (MovieDirection i : result) {
+            //here we testing equality of Converted string and properly rotated default vector
+            assertEquals(i, direction.toMovieDirection());
+            // here we rotate vector in clockwise
             direction = direction.next();
         }
 
