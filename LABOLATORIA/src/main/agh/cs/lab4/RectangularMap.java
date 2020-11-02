@@ -86,7 +86,10 @@ public class RectangularMap implements IWorldMap {
         }
         return null;
     }
-
+    public ArrayList<Animal> returnAnimalList()
+    {
+        return this.animalsList;
+    }
     public String toString()
     {
         MapVisualizer map = new MapVisualizer(this);
