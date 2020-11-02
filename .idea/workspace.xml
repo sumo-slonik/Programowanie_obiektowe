@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca3d6f4b-a75c-4427-95bb-fe0c21841848" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Lab_2/Lab_2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/LABOLATORIA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LABOLATORIA/LABOLATORIA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/out/production/LABOLATORIA/agh/cs/lab3/Animal$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/LABOLATORIA/out/production/LABOLATORIA/agh/cs/lab3/Animal$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/out/production/LABOLATORIA/agh/cs/lab3/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/LABOLATORIA/out/production/LABOLATORIA/agh/cs/lab3/Animal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/out/production/LABOLATORIA/agh/cs/lab3/OptionParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/LABOLATORIA/out/production/LABOLATORIA/agh/cs/lab3/OptionParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/out/production/LABOLATORIA/agh/cs/lab3/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/LABOLATORIA/out/production/LABOLATORIA/agh/cs/lab3/World.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/out/test/LABOLATORIA/lab2/MapDirectionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/out/test/LABOLATORIA/lab2/Vector2dTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/out/test/LABOLATORIA/lab3/AnimalTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/LABOLATORIA/out/test/LABOLATORIA/lab3/AnimalTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/out/test/LABOLATORIA/lab3/OptionParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/LABOLATORIA/out/test/LABOLATORIA/lab3/OptionParserTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/src/tests/lab2/MapDirectionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/src/tests/lab2/Vector2dTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/src/tests/lab3/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/LABOLATORIA/src/tests/lab3/AnimalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LABOLATORIA/src/tests/lab3/OptionParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/LABOLATORIA/src/tests/lab3/OptionParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/LABOLATORIA" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -32,10 +45,17 @@
       <option name="presentableId" value="Default" />
       <updated>1603197692038</updated>
       <workItem from="1603197695481" duration="42000" />
+      <workItem from="1604262192949" duration="30000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1604262221254">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604262221254" />
   </component>
 </project>

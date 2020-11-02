@@ -4,11 +4,10 @@ import agh.cs.lab2.MovieDirection;
 import java.util.Arrays;
 
 public class OptionParser {
-    public static MovieDirection [] parse(String toParse){
-        MovieDirection [] result = new MovieDirection[toParse.length()] ;
+    public  MovieDirection [] parse(String [] toParse){
+        MovieDirection [] result = new MovieDirection[toParse.length] ;
         int iter = 0;
-        String [] copy = toParse.split("");
-        for (String i : copy)
+        for (String i : toParse)
         {
             switch (i) {
                 case "f", "forward" -> {
