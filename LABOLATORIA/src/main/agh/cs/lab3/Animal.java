@@ -4,8 +4,9 @@ import agh.cs.lab2.MapDirection;
 import agh.cs.lab2.MovieDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab4.IWorldMap;
+import agh.cs.lab5.AbstractWorldMapElement;
 
-public class Animal {
+public class Animal extends AbstractWorldMapElement {
     //this vector describe position animal object in map 4x4
     private Vector2d position = new Vector2d(2, 2);
     // this parameter describe direction of animal

@@ -9,10 +9,10 @@ public enum MapDirection {
     //convert vector to string
     public String toString(){
         return switch (this) {
-            case EAST -> "Wschód";
-            case WEST -> "Zachód";
-            case NORTH -> "Północ";
-            case SOUTH -> "Południe";
+            case EAST -> "E";
+            case WEST -> "W";
+            case NORTH -> "N";
+            case SOUTH -> "S";
         };
     }
     public MovieDirection toMovieDirection()

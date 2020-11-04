@@ -10,6 +10,7 @@ package agh.cs.lab4;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.Animal;
 import agh.cs.lab2.MovieDirection;
+import agh.cs.lab5.AbstractWorldMapElement;
 
 
 public interface IWorldMap {
@@ -59,4 +60,7 @@ public interface IWorldMap {
      * @return Object or null if the position is not occupied.
      */
     Object objectAt(Vector2d position);
+
+    //actualise this.max and this.min
+    void actualiseMapRange(AbstractWorldMapElement mapElement);
 }

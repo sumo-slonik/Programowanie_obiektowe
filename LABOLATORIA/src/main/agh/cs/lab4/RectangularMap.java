@@ -4,18 +4,21 @@ import agh.cs.lab2.MovieDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.Animal;
 import agh.cs.lab4.MapVisualizer;
+import agh.cs.lab5.AbstractWorldMapElement;
+
 import java.util.ArrayList;
 
 public class RectangularMap implements IWorldMap {
 
-    private final int width;
-    private final int height;
+    private Vector2d maxPosition;
+    private final Vector2d minPosition;
     private ArrayList<Animal> animalsList;
     private int[][] animalMap;
 
     public RectangularMap(int width, int height) {
-        this.width = Math.max(width, 0);
-        this.height = Math.max(height, 0);
+        this.maxPosition = new Vector2d(Math.max(width-1, 0),Math.max(height-1, 0));
+        this.minPosition = new Vector2d(0,0);
+        this.animalsList = new ArrayList<Animal>(0);
         this.animalsList = new ArrayList<Animal>(0);
         this.animalMap = new int [width][height];
         for (int x = 0; x < width; x++) {
@@ -28,13 +31,13 @@ public class RectangularMap implements IWorldMap {
 
     @Override
     public boolean canMoveTo(Vector2d position) {
-        return position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(width-1, height-1)) && !isOccupied(position);
+        return position.follows(this.minPosition) && position.precedes(this.maxPosition) && !isOccupied(position);
     }
 
     @Override
     public boolean place(Animal animal) {
         Vector2d animalPosition = animal.getPosition();
-        if (animalPosition.follows(new Vector2d(0, 0)) && animalPosition.precedes(new Vector2d(width, height)))
+        if (animalPosition.follows(this.minPosition) && animalPosition.precedes(this.maxPosition))
         {
             if (!isOccupied(animalPosition))
             {
@@ -67,15 +70,8 @@ public class RectangularMap implements IWorldMap {
     }
 
     @Override
-    public boolean isOccupied(Vector2d position) {
-        if (position.follows(new Vector2d(0,0)) && position.precedes(new Vector2d(this.width-1,this.height-1)))
-        {
+    public boolean isOccupied(Vector2d position)  {
             return this.animalMap[position.x][position.y] != -1;
-        }
-        else
-        {
-            return false;
-        }
     }
 
     @Override
@@ -86,6 +82,12 @@ public class RectangularMap implements IWorldMap {
         }
         return null;
     }
+
+    @Override
+    public void actualiseMapRange(AbstractWorldMapElement mapElement) {
+        //pass
+    }
+
     public ArrayList<Animal> returnAnimalList()
     {
         return this.animalsList;
@@ -93,6 +95,6 @@ public class RectangularMap implements IWorldMap {
     public String toString()
     {
         MapVisualizer map = new MapVisualizer(this);
-        return map.draw(new Vector2d(0,0),new Vector2d(this.width-1,this.height-1));
+        return map.draw(this.minPosition,this.maxPosition);
     }
 }
