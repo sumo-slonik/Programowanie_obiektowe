@@ -4,15 +4,16 @@ import agh.cs.lab2.MovieDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.Animal;
 import agh.cs.lab4.IWorldMap;
-
+import agh.cs.lab4.MapVisualizer;
 import java.util.ArrayList;
 
 public class AbstractWorldMap implements IWorldMap {
 
-    private Vector2d maxPosition;
-    private Vector2d minPosition;
-    private int[][] animalMap;
-    private ArrayList<Animal> animalsList;
+    public Vector2d maxPosition;
+    public Vector2d minPosition;
+    public int[][] animalMap;
+    public ArrayList<Animal> animalsList;
+
 
     public void addAnimal(Animal animal)
     {
@@ -20,6 +21,9 @@ public class AbstractWorldMap implements IWorldMap {
         int index = this.animalsList.size();
         animalsList.add(animal);
         animalMap[animalPosition.x][animalPosition.y] = index;
+    }
+    public void optional2dAfterRunActualise(Vector2d prevPose,Vector2d actualPose,int i,int size)
+    {
     }
     @Override
     public boolean canMoveTo(Vector2d position) {
@@ -33,6 +37,7 @@ public class AbstractWorldMap implements IWorldMap {
             if (!isOccupied(animalPosition))
             {
                 addAnimal(animal);
+                actualiseMapRange(animal);
                 return true;
             }
         }
@@ -41,6 +46,17 @@ public class AbstractWorldMap implements IWorldMap {
 
     @Override
     public void run(MovieDirection[] directions) {
+        int size = animalsList.size();
+        for (int i = 0; i < directions.length; i++) {
+            Animal actualAnimal = animalsList.get(i % size);
+            Vector2d positionBefore = new Vector2d(actualAnimal.getPosition().x, actualAnimal.getPosition().y);
+            actualAnimal.move(directions[i]);
+            animalsList.remove(i % size);
+            animalsList.add(i % size, actualAnimal);
+            Vector2d animalPosition = actualAnimal.getPosition();
+            optional2dAfterRunActualise(positionBefore,animalPosition,i,size);
+            actualiseMapRange(actualAnimal);
+        }
 
     }
 
@@ -57,5 +73,11 @@ public class AbstractWorldMap implements IWorldMap {
     @Override
     public void actualiseMapRange(AbstractWorldMapElement mapElement) {
 
+    }
+
+    public String toString() {
+        MapVisualizer map = new MapVisualizer(this);
+
+        return map.draw(this.minPosition, this.maxPosition);
     }
 }
