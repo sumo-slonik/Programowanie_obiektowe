@@ -63,6 +63,7 @@ public class Animal extends AbstractWorldMapElement {
         return false;
     }
     // this method return current position of animal
+    @Override
     public Vector2d getPosition(){
         return  this.position;
     }

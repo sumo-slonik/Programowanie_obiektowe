@@ -1,14 +1,9 @@
 package agh.cs.lab5;
 
-import agh.cs.lab2.MovieDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.Animal;
-import agh.cs.lab4.IWorldMap;
-import agh.cs.lab4.MapVisualizer;
-import agh.cs.lab5.Grass;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.TreeMap;
+
 
 
 public class GrassField extends AbstractWorldMap {
@@ -23,7 +18,6 @@ public class GrassField extends AbstractWorldMap {
             int randomX = (int) (Math.random() * maxPose);
             int randomY = (int) (Math.random() * maxPose);
             if (placeGrass(new Grass(new Vector2d(randomX, randomY)))) {
-                System.out.println(new Vector2d(randomX, randomY).toString()+" "+this.minPosition.toString()+" "+this.maxPosition.toString());
                 howManyActual++;
             }
         }
@@ -44,7 +38,7 @@ public class GrassField extends AbstractWorldMap {
 
     @Override
     public boolean canMoveTo(Vector2d position) {
-        return position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE)) && !isOccupied(position);
+        return position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE)) && !isOccupiedByAnimal(position);
     }
     @Override
     public boolean isOccupied(Vector2d position) {
@@ -87,5 +81,18 @@ public class GrassField extends AbstractWorldMap {
     public ArrayList<Animal> returnAnimalList() {
         return this.animalsList;
     }
+    public ArrayList<Grass> returnGrassList() {
+        return this.grassList;
+    }
+    public boolean isOccupiedByAnimal(Vector2d position) {
 
+        if (position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE))) {
+            for (Animal actual : animalsList) {
+                if (actual.getPosition().equals(position)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

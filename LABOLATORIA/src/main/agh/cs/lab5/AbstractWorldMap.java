@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 public class AbstractWorldMap implements IWorldMap {
 
-    public Vector2d maxPosition;
-    public Vector2d minPosition;
-    public int[][] animalMap;
-    public ArrayList<Animal> animalsList;
+    protected Vector2d maxPosition;
+    protected Vector2d minPosition;
+    protected int[][] animalMap;
+    protected ArrayList<Animal> animalsList;
 
 
     public void addAnimal(Animal animal)
@@ -32,6 +32,7 @@ public class AbstractWorldMap implements IWorldMap {
     @Override
     public boolean place(Animal animal) {
         Vector2d animalPosition = animal.getPosition();
+        actualiseMapRange(animal);
         if (animalPosition.follows(this.minPosition) && animalPosition.precedes(this.maxPosition))
         {
             if (!isOccupied(animalPosition))
@@ -77,7 +78,6 @@ public class AbstractWorldMap implements IWorldMap {
 
     public String toString() {
         MapVisualizer map = new MapVisualizer(this);
-
         return map.draw(this.minPosition, this.maxPosition);
     }
 }

@@ -7,6 +7,7 @@ public class Grass extends AbstractWorldMapElement{
     {
         this.position = position;
     }
+    @Override
     public Vector2d getPosition()
     {
         return this.position;

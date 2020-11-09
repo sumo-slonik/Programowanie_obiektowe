@@ -4,7 +4,6 @@ import agh.cs.lab2.MovieDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.Animal;
 import agh.cs.lab3.OptionParser;
-import agh.cs.lab4.MapVisualizer;
 
 public class World {
     public static void main (String [] args)
