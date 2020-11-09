@@ -11,6 +11,7 @@ import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.Animal;
 import agh.cs.lab2.MovieDirection;
 import agh.cs.lab5.AbstractWorldMapElement;
+import agh.cs.lab5.IWorldMapElement;
 
 
 public interface IWorldMap {
@@ -62,5 +63,5 @@ public interface IWorldMap {
     Object objectAt(Vector2d position);
 
     //actualise this.max and this.min
-    void actualiseMapRange(AbstractWorldMapElement mapElement);
+    void actualiseMapRange(IWorldMapElement mapElement);
 }

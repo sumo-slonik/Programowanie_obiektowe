@@ -1,7 +1,11 @@
 package agh.cs.lab5;
 import agh.cs.lab2.Vector2d;
 
-public class Grass extends AbstractWorldMapElement{
+//grass is map element like animal but grass can't move
+// and have lover priority in display
+
+public class Grass implements IWorldMapElement{
+
     private final Vector2d position;
     public Grass(Vector2d position)
     {

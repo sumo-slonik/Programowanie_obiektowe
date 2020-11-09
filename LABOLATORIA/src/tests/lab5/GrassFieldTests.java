@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class GrassFieldTests {
+    //testing number of spawn grass
+
     @Test
     public void grassSpawn()
     {
@@ -18,6 +20,7 @@ public class GrassFieldTests {
         ArrayList <Grass> list = map.returnGrassList();
         assertEquals(list.size(),10);
     }
+    //testing one animal movement and collisions with grass
     @Test
     public void oneAnimalRunTest()
     {

@@ -6,6 +6,7 @@ import agh.cs.lab3.Animal;
 import agh.cs.lab4.MapVisualizer;
 import agh.cs.lab5.AbstractWorldMap;
 import agh.cs.lab5.AbstractWorldMapElement;
+import agh.cs.lab5.IWorldMapElement;
 
 import java.util.ArrayList;
 public class RectangularMap extends AbstractWorldMap {
@@ -49,7 +50,7 @@ public class RectangularMap extends AbstractWorldMap {
     }
 
     @Override
-    public void actualiseMapRange(AbstractWorldMapElement mapElement) {
+    public void actualiseMapRange(IWorldMapElement mapElement) {
         //pass
     }
 

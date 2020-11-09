@@ -8,12 +8,17 @@ import java.util.ArrayList;
 
 public class GrassField extends AbstractWorldMap {
     ArrayList<Grass> grassList = new ArrayList<Grass>(0);
+    //initialise GrassField
     public GrassField(int howMany) {
+        // calculate max position of grass spawn
         int maxPose = (int) Math.sqrt(howMany * 10);
         int howManyActual = 0;
+        // this is actual range of map, it will be actualise by actualiseMapRange
+        // every time we put new element on map and in every move of animal
         this.maxPosition = new Vector2d(0, 0);
         this.minPosition = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
         this.animalsList = new ArrayList<Animal>(0);
+        // procedure of start grass spawning
         while (howManyActual < howMany) {
             int randomX = (int) (Math.random() * maxPose);
             int randomY = (int) (Math.random() * maxPose);
@@ -22,6 +27,7 @@ public class GrassField extends AbstractWorldMap {
             }
         }
     }
+    // method works like place but for grass
     public boolean placeGrass(Grass tmpGrass) {
         if (!isOccupied(tmpGrass.getPosition())) {
             grassList.add(tmpGrass);
@@ -30,16 +36,21 @@ public class GrassField extends AbstractWorldMap {
         }
         return false;
     }
+    //adds animal to animal list
     @Override
     public void addAnimal(Animal animal)
     {
         animalsList.add(animal);
     }
-
+    // checking possibility od movement to specific place
+    // map have dynamic range so we only have to check new position have plus co-ordinates
+    // and we have to check if there is an animal in specific position
     @Override
     public boolean canMoveTo(Vector2d position) {
         return position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE)) && !isOccupiedByAnimal(position);
     }
+    // we have to spell through the list of animals and
+    // grasses and check if the field we have selected is not already occupied
     @Override
     public boolean isOccupied(Vector2d position) {
 
@@ -57,6 +68,7 @@ public class GrassField extends AbstractWorldMap {
         }
         return false;
     }
+    // returns object (grass or animal) on specific position
     @Override
     public Object objectAt(Vector2d position) {
         if (position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE))) {
@@ -73,8 +85,10 @@ public class GrassField extends AbstractWorldMap {
         }
         return null;
     }
+    // this if supporting method to run and place
+    // this method actualise map range every time we spawn animal/grass or we make movement
     @Override
-    public void actualiseMapRange(AbstractWorldMapElement mapElement)     {
+    public void actualiseMapRange(IWorldMapElement mapElement)     {
         this.maxPosition = new Vector2d(Math.max(this.maxPosition.x,mapElement.getPosition().x),Math.max(this.maxPosition.y,mapElement.getPosition().y));
         this.minPosition = new Vector2d(Math.min(this.minPosition.x,mapElement.getPosition().x),Math.min(this.minPosition.y,mapElement.getPosition().y));
     }
@@ -84,6 +98,9 @@ public class GrassField extends AbstractWorldMap {
     public ArrayList<Grass> returnGrassList() {
         return this.grassList;
     }
+
+    //method like isOccupiedBy but checking only animals
+
     public boolean isOccupiedByAnimal(Vector2d position) {
 
         if (position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE))) {
