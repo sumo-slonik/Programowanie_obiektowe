@@ -26,6 +26,9 @@ public class OptionParser {
                     result[iter] = MovieDirection.BACKWARD;
                     iter++;
                 }
+                default -> {
+                    throw new IllegalArgumentException(i + " is not legal move specification");
+                }
             }
         }
         MovieDirection [] to_return = new MovieDirection[iter];

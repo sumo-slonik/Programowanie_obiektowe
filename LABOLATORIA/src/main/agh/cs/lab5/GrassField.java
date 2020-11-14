@@ -3,11 +3,13 @@ package agh.cs.lab5;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.Animal;
 import java.util.ArrayList;
-
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 public class GrassField extends AbstractWorldMap {
-    ArrayList<Grass> grassList = new ArrayList<Grass>(0);
+    private ArrayList<Grass> grassList = new ArrayList<Grass>(0);
+
     //initialise GrassField
     public GrassField(int howMany) {
         // calculate max position of grass spawn
@@ -17,7 +19,7 @@ public class GrassField extends AbstractWorldMap {
         // every time we put new element on map and in every move of animal
         this.maxPosition = new Vector2d(0, 0);
         this.minPosition = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
-        this.animalsList = new ArrayList<Animal>(0);
+        this.animals  = new LinkedHashMap<>();
         // procedure of start grass spawning
         while (howManyActual < howMany) {
             int randomX = (int) (Math.random() * maxPose);
@@ -40,7 +42,7 @@ public class GrassField extends AbstractWorldMap {
     @Override
     public void addAnimal(Animal animal)
     {
-        animalsList.add(animal);
+        animals.put(animal.getPosition(),animal);
     }
     // checking possibility od movement to specific place
     // map have dynamic range so we only have to check new position have plus co-ordinates
@@ -55,14 +57,14 @@ public class GrassField extends AbstractWorldMap {
     public boolean isOccupied(Vector2d position) {
 
         if (position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE))) {
-            for (Animal actual : animalsList) {
-                if (actual.getPosition().equals(position)) {
-                    return true;
-                }
+            if (isOccupiedByAnimal(position)) {
+                return true;
             }
-            for (Grass actual : grassList) {
-                if (actual.getPosition().equals(position)) {
-                    return true;
+            else {
+                for (Grass actual : grassList) {
+                    if (actual.getPosition().equals(position)) {
+                        return true;
+                    }
                 }
             }
         }
@@ -72,10 +74,9 @@ public class GrassField extends AbstractWorldMap {
     @Override
     public Object objectAt(Vector2d position) {
         if (position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE))) {
-            for (Animal actual : animalsList) {
-                if (actual.getPosition().equals(position)) {
-                    return actual;
-                }
+            if (animals.getOrDefault(position, null) != null)
+            {
+                return animals.get(position);
             }
             for (Grass actual : grassList) {
                 if (actual.getPosition().equals(position)) {
@@ -98,18 +99,5 @@ public class GrassField extends AbstractWorldMap {
     public ArrayList<Grass> returnGrassList() {
         return this.grassList;
     }
-
     //method like isOccupiedBy but checking only animals
-
-    public boolean isOccupiedByAnimal(Vector2d position) {
-
-        if (position.follows(new Vector2d(0, 0)) && position.precedes(new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE))) {
-            for (Animal actual : animalsList) {
-                if (actual.getPosition().equals(position)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 }

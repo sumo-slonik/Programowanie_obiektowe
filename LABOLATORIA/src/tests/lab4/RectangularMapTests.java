@@ -9,6 +9,8 @@ import agh.cs.lab4.RectangularMap;
 
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 
@@ -54,8 +56,7 @@ public class RectangularMapTests {
         assertEquals(map.objectAt(new Vector2d(4,0)),tmp1);
     }
     @Test
-    public void twoAnimalMovementTest()
-    {
+    public void twoAnimalMovementTest() throws IOException, InterruptedException {
         IWorldMap map = new RectangularMap(10, 5);
         Animal tmp = new Animal(map, new Vector2d(0,0));
         Animal tmp1 = new Animal(map, new Vector2d(3,0));
@@ -69,8 +70,7 @@ public class RectangularMapTests {
 
     }
     @Test
-    public void animalCollisionTest()
-    {
+    public void animalCollisionTest() throws IOException, InterruptedException {
         IWorldMap map = new RectangularMap(10, 5);
         Animal tmp = new Animal(map, new Vector2d(4,4));
         Animal tmp1 = new Animal(map, new Vector2d(1,4));

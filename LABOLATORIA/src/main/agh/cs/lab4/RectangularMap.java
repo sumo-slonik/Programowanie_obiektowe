@@ -9,12 +9,13 @@ import agh.cs.lab5.AbstractWorldMapElement;
 import agh.cs.lab5.IWorldMapElement;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
 public class RectangularMap extends AbstractWorldMap {
     public RectangularMap(int width, int height) {
         this.maxPosition = new Vector2d(Math.max(width - 1, 0), Math.max(height - 1, 0));
         this.minPosition = new Vector2d(0, 0);
-        this.animalsList = new ArrayList<Animal>(0);
-        this.animalsList = new ArrayList<Animal>(0);
+        this.animals  = new LinkedHashMap<>();
         this.animalMap = new int[width][height];
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
@@ -38,15 +39,12 @@ public class RectangularMap extends AbstractWorldMap {
 
     @Override
     public boolean isOccupied(Vector2d position) {
-        return this.animalMap[position.x][position.y] != -1;
+        return animals.getOrDefault(position, null) != null;
     }
 
     @Override
     public Object objectAt(Vector2d position) {
-        if (isOccupied(position)) {
-            return this.animalsList.get(this.animalMap[position.x][position.y]);
-        }
-        return null;
+        return animals.getOrDefault(position, null);
     }
 
     @Override

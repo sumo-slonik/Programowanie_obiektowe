@@ -13,6 +13,8 @@ import agh.cs.lab2.MovieDirection;
 import agh.cs.lab5.AbstractWorldMapElement;
 import agh.cs.lab5.IWorldMapElement;
 
+import java.io.IOException;
+
 
 public interface IWorldMap {
     /**
@@ -40,7 +42,7 @@ public interface IWorldMap {
      * @param directions
      *            Array of move directions.
      */
-    void run(MovieDirection[] directions);
+    void run(MovieDirection[] directions) throws InterruptedException, IOException;
 
     /**
      * Return true if given position on the map is occupied. Should not be
