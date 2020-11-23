@@ -24,7 +24,7 @@ public class GrassFieldTests {
     @Test
     public void oneAnimalRunTest()
     {
-        GrassField map = new GrassField( 0);
+        GrassField map = new GrassField( 10);
         Animal tmp1 = new Animal(map, new Vector2d(0,0));
         map.place(tmp1);
         // simple movement

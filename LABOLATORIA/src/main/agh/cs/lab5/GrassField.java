@@ -2,14 +2,16 @@ package agh.cs.lab5;
 
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.Animal;
+import agh.cs.lab7.MapBoundary;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 
 public class GrassField extends AbstractWorldMap {
-    private ArrayList<Grass> grassList = new ArrayList<Grass>(0);
 
+    private ArrayList<Grass> grassList = new ArrayList<Grass>(0);
     //initialise GrassField
     public GrassField(int howMany) {
         // calculate max position of grass spawn
@@ -17,9 +19,8 @@ public class GrassField extends AbstractWorldMap {
         int howManyActual = 0;
         // this is actual range of map, it will be actualise by actualiseMapRange
         // every time we put new element on map and in every move of animal
-        this.maxPosition = new Vector2d(0, 0);
-        this.minPosition = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
         this.animals  = new LinkedHashMap<>();
+        this.boundary = new MapBoundary();
         // procedure of start grass spawning
         while (howManyActual < howMany) {
             int randomX = (int) (Math.random() * maxPose);
@@ -33,7 +34,7 @@ public class GrassField extends AbstractWorldMap {
     public boolean placeGrass(Grass tmpGrass) {
         if (!isOccupied(tmpGrass.getPosition())) {
             grassList.add(tmpGrass);
-            actualiseMapRange(tmpGrass);
+            this.boundary.add(tmpGrass.getPosition());
             return true;
         }
         return false;
@@ -43,6 +44,7 @@ public class GrassField extends AbstractWorldMap {
     public void addAnimal(Animal animal)
     {
         animals.put(animal.getPosition(),animal);
+        this.boundary.add(animal.getPosition());
     }
     // checking possibility od movement to specific place
     // map have dynamic range so we only have to check new position have plus co-ordinates
@@ -85,13 +87,6 @@ public class GrassField extends AbstractWorldMap {
             }
         }
         return null;
-    }
-    // this if supporting method to run and place
-    // this method actualise map range every time we spawn animal/grass or we make movement
-    @Override
-    public void actualiseMapRange(IWorldMapElement mapElement)     {
-        this.maxPosition = new Vector2d(Math.max(this.maxPosition.x,mapElement.getPosition().x),Math.max(this.maxPosition.y,mapElement.getPosition().y));
-        this.minPosition = new Vector2d(Math.min(this.minPosition.x,mapElement.getPosition().x),Math.min(this.minPosition.y,mapElement.getPosition().y));
     }
     public ArrayList<Animal> returnAnimalList() {
         return this.animalsList;

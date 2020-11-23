@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class RectangularMap extends AbstractWorldMap {
+
+    private final Vector2d maxPosition;
+    private final Vector2d minPosition;
+
     public RectangularMap(int width, int height) {
         this.maxPosition = new Vector2d(Math.max(width - 1, 0), Math.max(height - 1, 0));
         this.minPosition = new Vector2d(0, 0);

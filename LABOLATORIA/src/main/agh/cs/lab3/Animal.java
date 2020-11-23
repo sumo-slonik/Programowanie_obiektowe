@@ -6,6 +6,9 @@ import agh.cs.lab2.Vector2d;
 import agh.cs.lab4.IWorldMap;
 import agh.cs.lab5.AbstractWorldMapElement;
 import agh.cs.lab5.IWorldMapElement;
+import agh.cs.lab7.IPositionChangeObserver;
+
+import java.util.ArrayList;
 
 public class Animal implements IWorldMapElement {
     //this vector describe position animal object in map 4x4
@@ -18,6 +21,7 @@ public class Animal implements IWorldMapElement {
         return orientation.toString().substring(0,1);
     }
     //constructor of animal class
+    private final ArrayList<IPositionChangeObserver> obserwers = new ArrayList<>(0);
     public Animal (IWorldMap map, Vector2d initialPosition)
     {
         this.map = map;
@@ -67,5 +71,21 @@ public class Animal implements IWorldMapElement {
     @Override
     public Vector2d getPosition(){
         return  this.position;
+    }
+
+    public void addObserver(IPositionChangeObserver observer)
+    {
+        this.obserwers.add(observer);
+    }
+    public void removeObserver(IPositionChangeObserver observer)
+    {
+        this.obserwers.remove(observer);
+    }
+    public void positionChanged(Vector2d old,Vector2d actual)
+    {
+        for (IPositionChangeObserver observer : this.obserwers)
+        {
+            observer.positionChanged(old,actual);
+        }
     }
 }
